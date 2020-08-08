@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav>Elliott Chenoweth</nav>
+    <article>
+        <header>
+            <h1>Resizing A VirtualBox Virtual Hard Drive And Ubuntu Linux Partition And File System</h1>
+            <p class="byline">December 17, 2019</p>
+        </header>
+
+        <p>Start by shutting down the virtual machine.</p>
+
+        <p>Navigate to the location of the VDI. On Windows this is in <br/><span class="code">%USERPROFILE%\VirtualBox VMs\YOUR VM NAME</span>.
+
+        <p>Run this VirtualBox command to resize the hard drive. Here I am resizing to 20 gigabytes.
+
+        <div class="code">
+            <code><pre
+>$ VBoxManage modifyhd "YOUR VM NAME.vdi" --resize 20000
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+01234567890123456789012345678901234567890123456789012345678901234567890123456789</pre>
+            </code>
+        </div>
+
+        <p>(No, 20 gigabytes <a href="#">is not</a> 20480 megabytes.)</p>
+
+        <p>You might have to add VBoxManage to your path on Windows. You can do this by going to <b>Start > Edit the system environment variables > Environment Variables... > Use variables for YOUR USER NAME > Path > Edit...</b> Then paste a semicolon (;) followed by the path to the folder containing VBoxManage.exe (probably something like <span class="code">;C:\Program Files\Oracle\VirtualBox</span>.</p>
+
+        <p>Once resizing the disk is done, start up your VM.</p>
+
+        <p>Inside your VM, open parted.</p>
+
+<div class="code">
+    <code><pre
+>$ sudo parted
+GNU Parted 3.2
+Using /dev/sda
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted)</pre>
+</code>
+</div>
+
+<p>Use <span class="code">print list</span> to show your partitions.</p>
+
+<div class="code">
+    <code><pre
+>(parted) print list
+Model: ATA VBOX HARDDISK (scsi)
+Disk /dev/sda: 21.0GB
+Sector size (logical/physical): 512B/512B
+Parition table: gpt
+Disk Flags:
+
+Number  Start   End       Size    File system   Name  Flags
+1      1049kB  2097kB    1049kB              bios_grub
+2      2097kB  10.GB     10.0GB  ext4</pre>
+</code>
+</div>
+
+<p>Here I have one disk with a boot partition on sda1, and the main partition on sda2.</p>
+
+<p>Now I resize partition 2 to take up the remainder of the disk.</p>
+
+<div class="code">
+    <code><pre
+>(parted) resizepart 2
+Warning: Partition /dev/sda2 is being used. Are you sure you want to continue?
+Yes/No? y
+End?  [10.0GB]? 20GB</pre>
+</code>
+</div>
+
+  <p>Now if we run <span class="code">print list</span> again, we see that the partition has been resized.</p>
+
+  <div class="code">
+    <code><pre
+>Number  Start   End       Size    File system   Name  Flags
+  1      1049kB  2097kB    1049kB              bios_grub
+  2      2097kB  20.GB     20.0GB  ext4
+Type q to exit Parted.</pre>
+</code>
+</div>
+
+    <p>Now run <span class="code">sudo resize2fs /dev/sda2</span> to resize the filesystem. You're done!</p>
+    </article>
+</body>
+</html>
