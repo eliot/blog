@@ -1,7 +1,7 @@
 html {
-    font-family: verdana, Merriweather, sans-serif, system-ui;
-    font-size: 16px;
-    color: #333;
+    font-family: 'PT Sans', Roboto, verdana, Merriweather, sans-serif, system-ui;
+    font-size: 18px;
+    color: #444;
 }
 
 body {
@@ -9,13 +9,20 @@ body {
 }
 
 nav {
-    padding: 1em;
+    padding: 1em 1.5em;
     font-weight: bold;
+    font-size: 1.1em;
+    border-bottom: solid 1px rgb(216, 216, 216);
+}
+
+.site-title, h1 {
+    color: #000;
 }
 
 article {
-    max-width: 738px;
-    margin: 5em auto;
+    max-width: 838px;
+    margin: 4em auto;
+    padding: 0 1.5em;
 }
 
 article > header {
@@ -23,10 +30,12 @@ article > header {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 1.5em;
     text-align: center;
     margin: 1em 0 .25em;
 }
+
+
 
 .byline {
     text-align: center;
@@ -39,7 +48,7 @@ p {
 }
 
 a {
-    color: #007cb7;
+    color: #0068df;
 }
 
 .code {
@@ -47,10 +56,15 @@ a {
     /* border: 1px solid #d9d9d9; */
     padding: .25em 1em;
     font-family: monospace;
+    font-size: 16px;
     line-height: 1.6;
-    box-shadow: 0 2px 4px 2px rgb(0 0 0 / 15%);
+    /* box-shadow: 0 2px 4px 2px rgb(0 0 0 / 15%); */
     border-radius: 3px;
     box-sizing: border-box;
+    /* background: rgb(245, 245, 245); */
+    background: rgb(248, 249, 250);
+    border: 1px solid  hsl(210 17% 88% / 1);
+    color: #222;
 }
 
 span.code {
@@ -61,3 +75,10 @@ span.code {
 pre {
     margin: .5em 0;
 }
+
+/* Minimum width */
+@media (max-width: 900px) {
+    .code {
+        overflow-x: scroll;
+    }
+  }
