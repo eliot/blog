@@ -39,7 +39,10 @@ h1 {
 
 .byline {
     text-align: center;
-    color: #888
+}
+
+.post-list-date, .byline {
+    color: #888;
 }
 
 p {
@@ -82,3 +85,47 @@ pre {
         overflow-x: scroll;
     }
   }
+
+.post-list {
+    list-style: none;
+    border-top: 1px solid #eee;
+    padding: 0;
+}
+
+.post-list > li {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    transition: background-color .2s;
+}
+
+.post-list > li:hover {
+    background-color: #fafcfd;
+}
+
+.post-list-title {
+    display: block;
+    margin: .5rem 0;
+    /* color: #000; */
+    /* font-size: 1.5em;
+     */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.post-list-title::after {
+    content: "";
+    display: block;
+    position: absolute;
+    /* background: red; */
+    opacity: .5;
+    width: 98%;
+    height: 96%;
+    top: 2%;
+    left: 1%;
+}
+
+.post-list > li > time {
+    display: block;
+    margin: .5rem 0;
+}
