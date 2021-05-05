@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <title>Article</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="basic-theme/static/main.css">
 </head>
 <body>
-    <nav><div class="site-title">Elliott Chenoweth</div></nav>
+    <nav><div class="site-title"><a href="">Elliott Chenoweth</a></div>
+    <ul class="nav-links"
+        ><li><a href="">About</a></li
+        ><li><a href="">Articles</a></li
+        ><li><a href="">Projects</a></li
+        ><li><a href="">Contact</a></li
+        ><li><a href="">GitHub</a></li
+    ></ul></nav>
     <article>
+        <div class="back-btn"><a href=""><span>Back to Articles</span></a></div>
         <header>
             <h1>Resizing A VirtualBox Virtual Hard Drive And Ubuntu Linux Partition And File System</h1>
             <p class="byline">December 17, 2019</p>
@@ -93,6 +97,14 @@ Type q to exit Parted.</pre>
 </div>
 
     <p>Now run <span class="code">sudo resize2fs /dev/sda2</span> to resize the filesystem. You're done!</p>
+
+    <hr>
+    <div class="about-box">
+        <h3>About the Author</h3>
+        <p>I'm Elliott, a software engineer from the United States. You should follow me on twitter <a href="">here.</a></p>
+    </div>
+    
+    <hr>
     </article>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Elliott Chenoweth - How to use Microsoft FTP on cmd.exe</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/main.css">
+
+
+
+
+
+</head>
+
+<body>
+  <nav><div class="site-title">Elliott Chenoweth</div></nav>
+<article>
+    <header>
+        <h1>How to use Microsoft FTP on cmd.exe</h1>
+        <p class="byline">Published <time datetime="2019-07-05T00:00:00-04:00" class="post-list-date">July 5, 2019</time> </p>
+        
+    </header>
+    <p>This is a brief tutorial on how to use Microsoft's FTP client (ftp.exe) provided on Windows using the command line (cmd.exe).</p>
+<p>Start FTP in interactive mode.</p>
+<div class="highlight"><pre><span></span><code>&gt; ftp
+</code></pre></div>
+
+<p>Connect to a server:</p>
+<div class="highlight"><pre><span></span><code>ftp&gt; open myserver.com
+
+Connected to myserver.com.
+220 My FTP Server
+200 UTF8 set to on
+</code></pre></div>
+
+<p>Or you can connect with the initial <code>ftp</code> command:</p>
+<div class="highlight"><pre><span></span><code>&gt; ftp myserver.com
+</code></pre></div>
+
+<p>Enter your login credentials:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">User</span> <span class="ss">(</span><span class="nv">myserver</span>.<span class="nv">com</span>:<span class="ss">(</span><span class="nv">none</span><span class="ss">))</span>: <span class="nv">joe</span>
+<span class="mi">331</span> <span class="nv">Password</span> <span class="nv">required</span> <span class="k">for</span> <span class="nv">joe</span>
+<span class="nv">Password</span>:
+<span class="mi">230</span> <span class="nv">User</span> <span class="nv">joe</span> <span class="nv">logged</span> <span class="nv">in</span>
+</code></pre></div>
+</section>
+</body>
+</html>
